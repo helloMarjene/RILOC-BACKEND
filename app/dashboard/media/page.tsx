@@ -1,0 +1,1 @@
+import MediaLibrary from '../../../components/MediaLibrary';export default function MediaPage(){return <><div className="page-heading"><div><span className="eyebrow">Assets</span><h1>Media library</h1><p>Upload and manage images used by the RILOC website.</p></div></div><MediaLibrary/></>;}
