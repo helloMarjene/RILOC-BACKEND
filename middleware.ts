@@ -7,7 +7,9 @@ export async function middleware(request: NextRequest) {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const key = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
   if (!url || !key) {
-    if (request.nextUrl.pathname.startsWith('/dashboard')) return NextResponse.redirect(new URL('/setup', request.url));
+    const login = new URL('/login', request.url);
+    login.searchParams.set('config', 'missing');
+    if (request.nextUrl.pathname.startsWith('/dashboard')) return NextResponse.redirect(login);
     return response;
   }
 
