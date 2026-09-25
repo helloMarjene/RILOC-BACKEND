@@ -41,10 +41,11 @@ export default function AdminShell({ children, email }: { children: React.ReactN
     <main className="admin-main">
       <header className="topbar">
         <div className="topbar-left"><button className="mobile-menu-button" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle navigation"><Icon name={menuOpen ? 'close' : 'menu'} width={20} height={20} /></button><div className="breadcrumbs">RILOC <span> / </span><strong>{pageName}</strong></div></div>
-        <div className="top-actions"><a href={process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'} target="_blank" rel="noreferrer" className="button"><Icon name="globe" width={16} height={16} /> View website</a></div>
+        <div className="top-actions"><a href={process.env.NEXT_PUBLIC_SITE_URL || 'https://www.rilocs.org'} target="_blank" rel="noreferrer" className="button"><Icon name="globe" width={16} height={16} /> View website</a></div>
       </header>
       <div className="content-wrap">{children}</div>
     </main>
     {menuOpen && <button className="sidebar-scrim" aria-label="Close menu" onClick={() => setMenuOpen(false)} />}
   </div>;
 }
+

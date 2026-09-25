@@ -16,7 +16,7 @@ The `seed` script imports the four existing pages from `../riloc-nextjs/lib` int
 
 ## Online deployment
 
-Deploy this folder as its own Vercel project. Add `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`, and `NEXT_PUBLIC_SITE_URL` to the dashboard deployment. Add the same Supabase URL and publishable key to the public website deployment. The website reads only published page rows; Supabase RLS prevents anonymous access to drafts and administrative changes. Apply the SQL schema and run the seed script once from a trusted local environment. Do not put the secret key into Vercel browser-visible environment variables.
+Deploy this folder as its own Vercel project. For the dashboard Vercel project, add `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`, and set `NEXT_PUBLIC_SITE_URL=https://www.rilocs.org`. For the public website Vercel project, add the same `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`. The public site reads edits from the same Supabase project only after those variables are added and that project is redeployed. The website reads only published page rows; Supabase RLS prevents anonymous access to drafts and administrative changes. Apply the SQL schema and run the seed script once from a trusted local environment. Do not put the secret key into Vercel browser-visible environment variables.
 
 The public site must be deployed from `../riloc-nextjs` and redeployed after the Supabase environment variables are added. Without Supabase configuration, the site continues rendering its bundled content.
 
@@ -26,6 +26,7 @@ The public site must be deployed from `../riloc-nextjs` and redeployed after the
 - `npm run typecheck` — check TypeScript
 - `npm run build` — production build
 - `npm run seed` — grant the selected admin account and import page content
+
 
 
 
